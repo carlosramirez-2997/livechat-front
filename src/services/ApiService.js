@@ -8,6 +8,14 @@ class ApiService {
         return response.ok ? response.json() : null;
     }
 
+    static async Guestlogin() {
+        const response = await fetch("http://localhost:8080/api/auth/guest", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" }
+        });
+        return response.ok ? response.json() : null;
+    }
+
     static async getPreviousMessages(room) {
         const response = await fetch(`http://localhost:8080/api/messages/${room}`, {
           headers: { "Authorization": `Bearer ${localStorage.getItem("token")}` }
